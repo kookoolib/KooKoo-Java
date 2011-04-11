@@ -1,0 +1,11 @@
+This is the Java API code to access KooKoo API. Download the Java files and include them in your project and use the classes to generate KooKoo XML. 
+
+Example:
+
+     Response resp = new Response();
+ 
+     CollectDtmf cd = new CollectDtmf();
+     cd.addPlayText("Welcome to adder. Please enter the first number. Terminate with #");
+     resp.addCollectDtmf(cd);
+ 
+     System.out.println(resp.getXML());
