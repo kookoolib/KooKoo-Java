@@ -49,11 +49,32 @@ import org.w3c.dom.Element;
        e.printStackTrace();
      }
    }
+   
+   
+   public Dial(String nuber,Boolean record)
+   {
+     try
+     {
+       this.dbfac = DocumentBuilderFactory.newInstance();
+       this.docBuilder = this.dbfac.newDocumentBuilder();
+       this.doc = this.docBuilder.newDocument();
  
- 
+       this.dial = this.doc.createElement("dial");
+       this.dial.setTextContent(nuber);
+       this.dial.setAttribute("record", record.toString());
+       this.doc.appendChild(this.dial);
+     }
+     catch (Exception e) {
+       e.printStackTrace();
+     }
+   }
  
    public void setRecord(Boolean record) {
      this.dial.setAttribute("record", record.toString());
+   }
+   
+   public void setNumber(String number){
+       this.dial.setTextContent(number);
    }
  
 
