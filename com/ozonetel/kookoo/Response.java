@@ -44,6 +44,13 @@ public class Response {
         pt.setTextContent(playText);
         this.response.appendChild(pt);
     }
+    
+    public void addPlayText(String playText,int speed) {
+        Element pt = this.doc.createElement("playtext");
+        pt.setTextContent(playText);
+        pt.setAttribute("speed", ""+speed);
+        this.response.appendChild(pt);
+    }
 
     public void addConference(String confno) {
         Element cf = this.doc.createElement("conference");
