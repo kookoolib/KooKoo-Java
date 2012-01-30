@@ -42,13 +42,30 @@ public class Response {
     public void addPlayText(String playText) {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
+        pt.setAttribute("lang", "EN");
         this.response.appendChild(pt);
     }
-    
-    public void addPlayText(String playText,int speed) {
+
+    public void addPlayText(String playText, String lang) {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
-        pt.setAttribute("speed", ""+speed);
+        pt.setAttribute("lang", lang);
+        this.response.appendChild(pt);
+    }
+
+    public void addPlayText(String playText, int speed) {
+        Element pt = this.doc.createElement("playtext");
+        pt.setTextContent(playText);
+        pt.setAttribute("speed", "" + speed);
+        pt.setAttribute("lang", "EN");
+        this.response.appendChild(pt);
+    }
+
+    public void addPlayText(String playText, int speed, String lang) {
+        Element pt = this.doc.createElement("playtext");
+        pt.setTextContent(playText);
+        pt.setAttribute("speed", "" + speed);
+        pt.setAttribute("lang", lang);
         this.response.appendChild(pt);
     }
 
