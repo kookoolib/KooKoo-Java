@@ -43,12 +43,14 @@ public class Response {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
         pt.setAttribute("lang", "EN");
+        pt.setAttribute("speed", "" + 2);
         this.response.appendChild(pt);
     }
 
     public void addPlayText(String playText, String lang) {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
+        pt.setAttribute("speed", "" + 2);
         pt.setAttribute("lang", lang);
         this.response.appendChild(pt);
     }

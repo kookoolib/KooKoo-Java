@@ -86,6 +86,7 @@ public class CollectDtmf {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
         pt.setAttribute("lang", "EN");
+        pt.setAttribute("speed", "" + 2);
         this.collectdtmf.appendChild(pt);
     }
 
@@ -93,6 +94,7 @@ public class CollectDtmf {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
         pt.setAttribute("lang", lang);
+        pt.setAttribute("speed", "" + 2);
         this.collectdtmf.appendChild(pt);
     }
 
