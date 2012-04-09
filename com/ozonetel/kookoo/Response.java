@@ -47,6 +47,21 @@ public class Response {
         this.response.appendChild(pt);
     }
 
+    public void sendSms(String text, String number) {
+        Element ss = this.doc.createElement("sendsms");
+        ss.setTextContent(text);
+        ss.setAttribute("to", number);
+        this.response.appendChild(ss);
+    }
+    
+    public void sendSms(String text, String number,String unicode) {
+        Element ss = this.doc.createElement("sendsms");
+        ss.setTextContent(text);
+        ss.setAttribute("to", number);
+        ss.setAttribute("unicode", unicode);
+        this.response.appendChild(ss);
+    }
+
     public void addPlayText(String playText, String lang) {
         Element pt = this.doc.createElement("playtext");
         pt.setTextContent(playText);
