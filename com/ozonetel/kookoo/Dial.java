@@ -85,10 +85,24 @@ public class Dial {
         this.dial.setTextContent(number);
     }
 
+ 
+
+    public void setTimeout(int timeout) {
+        if (timeout < 0) {
+            timeout = 30;
+        }
+        this.dial.setAttribute("timeout", String.valueOf(timeout));
+    }
+
+    public void setLimitTime(int limittime) {
+        this.dial.setAttribute("limittime", String.valueOf(limittime));
+    }
+
     /**
-     * Sets the music on hold. Possible values are:<ul> <li><code>Dial.MusicOnHold.NORMAL</code>
-     * (Teleco ring) <li><code>Dial.MusicOnHold.DEFAULT</code> (music) <li><code>Dial.MusicOnHold.RING</code>
-     * (KooKoo ring) </ul>
+     * Sets the music on hold. Possible values are:<ul>
+     * <li><code>Dial.MusicOnHold.NORMAL</code> (Teleco ring)
+     * <li><code>Dial.MusicOnHold.DEFAULT</code> (music)
+     * <li><code>Dial.MusicOnHold.RING</code> (KooKoo ring) </ul>
      *
      * @param musicOnHold music on hold
      */
