@@ -18,6 +18,28 @@ public class Response {
     Document doc;
     Element response;
 
+    public enum SayAs {
+
+        DATE_FULL(201),
+        DATE_MEDIUM(202),
+        DATE_SHORT(204),
+        CURRENCY(401),
+        CURRENCY_DECIMAL(402),
+        DIGITS(501),
+        NUMBER(1);
+        private int code;
+
+        private SayAs(int code) {
+            this.code = code;
+        }
+
+        @Override
+        public String toString() {
+            return "" + code;
+        }
+
+    }
+
     public Response() {
         try {
             this.dbfac = DocumentBuilderFactory.newInstance();
@@ -53,8 +75,8 @@ public class Response {
         ss.setAttribute("to", number);
         this.response.appendChild(ss);
     }
-    
-    public void sendSms(String text, String number,String unicode) {
+
+    public void sendSms(String text, String number, String unicode) {
         Element ss = this.doc.createElement("sendsms");
         ss.setTextContent(text);
         ss.setAttribute("to", number);
@@ -128,6 +150,22 @@ public class Response {
     public void addDial(Dial dial) {
         Node c = this.doc.importNode(dial.getRoot(), true);
         this.response.appendChild(c);
+    }
+
+    public void sayAs(SayAs sayAs, String content) {
+        Element sa = this.doc.createElement("say-as");
+        sa.setAttribute("format", sayAs.toString());
+        sa.setAttribute("lang", "EN");
+        sa.setTextContent(content);
+        this.response.appendChild(sa);
+    }
+
+    public void sayAs(SayAs sayAs, String content, String lang) {
+        Element sa = this.doc.createElement("say-as");
+        sa.setAttribute("format", sayAs.toString());
+        sa.setAttribute("lang", lang);
+        sa.setTextContent(content);
+        this.response.appendChild(sa);
     }
 
     public String getXML() {
